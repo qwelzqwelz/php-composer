@@ -1,4 +1,4 @@
-FROM php:7.4.10-fpm
+FROM php:7.1.33-fpm
 
 # 配置文件
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
