@@ -1,9 +1,9 @@
 # php-composer
 * 集成了 `composer` 的 `PHP` 官方镜像，为 `Laravel` 开发和部署设计
-* 这是一个为开发环境设计的镜像
+* 这是一个为 **开发环境** 设计的镜像
 
 # PHP 官方镜像
-* 版本: `php:7.2.33-fpm`
+* 版本: `php:7.4.10-fpm`
 * 官方镜像中存在一些扩展，但是没有开启，列表如下：
 ```
 bcmath bz2 calendar ctype curl dba dom enchant exif ffi fileinfo filter ftp gd gettext gmp hash iconv imap intl json ldap mbstring mysqli oci8 odbc opcache pcntl pdo pdo_dblib pdo_firebird pdo_mysql pdo_oci pdo_odbc pdo_pgsql pdo_sqlite pgsql phar posix pspell readline reflection session shmop simplexml snmp soap sockets sodium spl standard sysvmsg sysvsem sysvshm tidy tokenizer xml xmlreader xmlrpc xmlwriter xsl zend_test zip
@@ -23,8 +23,6 @@ docker-php-ext-install [-jN] [--ini-name file.ini] ext-name [ext-name ...]
 * php-cs-fixer
 
 # 安装的 PHP extensions
-* sqlsrv 
-* pdo_sqlsrv
 * xdebug
 
 # 端口使用说明
@@ -36,14 +34,11 @@ docker-php-ext-install [-jN] [--ini-name file.ini] ext-name [ext-name ...]
 upload_max_filesize = 50M
 post_max_size = 50M
 
-extension=sqlsrv.so
-extension=pdo_sqlsrv.so
-
 [XDebug]
 zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20170718/xdebug.so
 xdebug.remote_enable = 1
 xdebug.remote_autostart = 1
 xdebug.remote_handler = "dbgp"
 xdebug.remote_port = "9001"
-xdebug.remote_host = php72
+xdebug.remote_host = php74
 ```
