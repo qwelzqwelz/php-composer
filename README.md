@@ -35,7 +35,7 @@ upload_max_filesize = 50M
 post_max_size = 50M
 
 [XDebug]
-zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20170718/xdebug.so
+zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20190902/xdebug.so
 xdebug.remote_enable = 1
 xdebug.remote_autostart = 1
 xdebug.remote_handler = "dbgp"
