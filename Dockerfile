@@ -26,7 +26,7 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
 
 
 # 安装 PHP 扩展
-RUN docker-php-ext-install bcmath pdo_mysql \
+RUN docker-php-ext-install bcmath pdo_mysql sockets \
     && pecl install sqlsrv pdo_sqlsrv
     
 # 复制配置文件

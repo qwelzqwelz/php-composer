@@ -22,6 +22,9 @@ docker-php-ext-install [-jN] [--ini-name file.ini] ext-name [ext-name ...]
 * unzip
 * msodbcsql17
 
+# 开启的内置 extension
+* sockets
+
 # 安装的 PHP extensions
 * sqlsrv 
 * pdo_sqlsrv
