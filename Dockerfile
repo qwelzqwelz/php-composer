@@ -14,7 +14,16 @@ RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
 # 安装 Git 和其他依赖
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y git zip unixodbc-dev
+    && apt-get install -y git zip unixodbc-dev gnupg
+
+# 安装 SQL Server ODBC driver
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
+    && curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list \
+    && apt-get update \
+    && ACCEPT_EULA=Y apt-get install -y msodbcsql17 \
+    && sed -i 's,^\(MinProtocol[ ]*=\).*,\1'TLSv1.0',g' /etc/ssl/openssl.cnf \
+    && sed -i 's,^\(CipherString[ ]*=\).*,\1'DEFAULT@SECLEVEL=1',g' /etc/ssl/openssl.cnf
+
 
 # 安装 PHP 扩展
 RUN docker-php-ext-install bcmath pdo_mysql \

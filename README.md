@@ -20,6 +20,7 @@ docker-php-ext-install [-jN] [--ini-name file.ini] ext-name [ext-name ...]
 # 额外安装的工具
 * git
 * unzip
+* msodbcsql17
 
 # 安装的 PHP extensions
 * sqlsrv 
@@ -35,4 +36,14 @@ post_max_size = 50M
 
 extension=sqlsrv.so
 extension=pdo_sqlsrv.so
+```
+
+# 关于 SQL Server 连接
+* 对于旧版本的 `SQL Server` 数据库，可能不支持 `ssl TLS1.2`，需要修改一下 `ssl` 配置
+> https://github.com/microsoft/msphpsql/issues/1056#issuecomment-553198252
+* 本镜像已经做出了修改，原配置如下：
+```ini
+[system_default_sect]
+MinProtocol = TLSv1.2
+CipherString = DEFAULT@SECLEVEL=2
 ```
