@@ -31,7 +31,7 @@ RUN curl -L https://cs.symfony.com/download/php-cs-fixer-v2.phar -o php-cs-fixer
     && mv php-cs-fixer /usr/local/bin/php-cs-fixer
 
 # 安装 PHP 扩展
-RUN docker-php-ext-install bcmath pdo_mysql \
+RUN docker-php-ext-install bcmath pdo_mysql sockets \
     && pecl install sqlsrv pdo_sqlsrv xdebug
     
 # 复制配置文件

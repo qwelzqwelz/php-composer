@@ -1,6 +1,6 @@
 # php-composer
 * 集成了 `composer` 的 `PHP` 官方镜像，为 `Laravel` 开发和部署设计
-* 这是一个为开发环境设计的镜像
+* 这是一个为 **开发环境** 设计的镜像
 
 # PHP 官方镜像
 * 版本: `php:7.2.33-fpm`
@@ -22,6 +22,9 @@ docker-php-ext-install [-jN] [--ini-name file.ini] ext-name [ext-name ...]
 * unzip
 * msodbcsql17
 * php-cs-fixer
+
+# 开启的内置 extension
+* sockets
 
 # 安装的 PHP extensions
 * sqlsrv 
