@@ -5,9 +5,6 @@ WORKDIR /var/www
 # 删除 html 文件夹
 RUN rm -rf /var/www/html
 
-# 修改 shell 头部样式
-RUN echo 'PS1="[\[\033[01;31m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]][\[\033[01;33m\]\t\[\033[00m\]]:\[\033[01;34m\]\w\[\033[00m\]\n# "' >>~/.bashrc
-
 # 安装 composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
