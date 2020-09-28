@@ -5,6 +5,9 @@ WORKDIR /var/www
 # 删除 html 文件夹
 RUN rm -rf /var/www/html
 
+# 修改 shell 头部样式
+RUN echo 'PS1="[\[\033[01;31m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]][\[\033[01;33m\]\t\[\033[00m\]]:\[\033[01;34m\]\w\[\033[00m\]\n# "' >>~/.bashrc
+
 # 安装 composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
@@ -24,7 +27,6 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
     && sed -i 's,^\(MinProtocol[ ]*=\).*,\1'TLSv1.0',g' /etc/ssl/openssl.cnf \
     && sed -i 's,^\(CipherString[ ]*=\).*,\1'DEFAULT@SECLEVEL=1',g' /etc/ssl/openssl.cnf
 
-
 # 下载 php-cs-fixer
 RUN curl -L https://cs.symfony.com/download/php-cs-fixer-v2.phar -o php-cs-fixer \
     && chmod a+x php-cs-fixer \
@@ -33,6 +35,6 @@ RUN curl -L https://cs.symfony.com/download/php-cs-fixer-v2.phar -o php-cs-fixer
 # 安装 PHP 扩展
 RUN docker-php-ext-install bcmath pdo_mysql sockets \
     && pecl install sqlsrv pdo_sqlsrv xdebug
-    
+
 # 复制配置文件
 COPY ./php.development.ini "$PHP_INI_DIR/php.ini"
