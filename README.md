@@ -34,6 +34,8 @@ docker-php-ext-install [-jN] [--ini-name file.ini] ext-name [ext-name ...]
 upload_max_filesize = 50M
 post_max_size = 50M
 
+memory_limit = -1
+
 [XDebug]
 zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20190902/xdebug.so
 xdebug.remote_enable = 1
