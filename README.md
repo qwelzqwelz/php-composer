@@ -43,6 +43,8 @@ post_max_size = 50M
 extension=sqlsrv.so
 extension=pdo_sqlsrv.so
 
+memory_limit = -1
+
 [XDebug]
 zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20170718/xdebug.so
 xdebug.remote_enable = 1
