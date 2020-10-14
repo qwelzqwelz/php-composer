@@ -14,7 +14,7 @@ RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
 # 安装 Git 和其他依赖
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y git zip unixodbc-dev gnupg
+    && apt-get install -y git zip procps unixodbc-dev gnupg vim cron
 
 # 安装 SQL Server ODBC driver
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \

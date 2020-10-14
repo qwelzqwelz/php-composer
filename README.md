@@ -21,7 +21,9 @@ docker-php-ext-install [-jN] [--ini-name file.ini] ext-name [ext-name ...]
 * git
 * unzip
 * msodbcsql17
-* php-cs-fixer
+* ps 命令
+* vim
+* cron
 
 # 开启的内置 extension
 * sockets
