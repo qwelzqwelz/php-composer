@@ -14,7 +14,9 @@ RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
 # 安装 Git 和其他依赖
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y git zip procps unixodbc-dev gnupg vim cron
+    && apt-get install -y git zip procps unixodbc-dev gnupg vim cron rsyslog \
+    # 取消 rsyslog.conf 对 cron 的注释
+    && sed -i 's/^#cron/cron/' /etc/rsyslog.conf
 
 # 安装 SQL Server ODBC driver
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
@@ -30,7 +32,7 @@ RUN curl -L https://cs.symfony.com/download/php-cs-fixer-v2.phar -o php-cs-fixer
     && mv php-cs-fixer /usr/local/bin/php-cs-fixer
 
 # 安装 PHP 扩展
-RUN docker-php-ext-install bcmath pdo_mysql sockets \
+RUN docker-php-ext-install bcmath pdo_mysql \
     && pecl install sqlsrv pdo_sqlsrv xdebug
 
 # 复制配置文件

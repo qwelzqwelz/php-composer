@@ -24,9 +24,7 @@ docker-php-ext-install [-jN] [--ini-name file.ini] ext-name [ext-name ...]
 * ps 命令
 * vim
 * cron
-
-# 开启的内置 extension
-* sockets
+* rsyslog
 
 # 安装的 PHP extensions
 * sqlsrv 
