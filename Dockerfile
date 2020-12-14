@@ -11,15 +11,15 @@ RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
     && rm -f composer-setup.php \
     && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 
-# 安装 Git 和其他依赖
-RUN apt-get update \
-    && apt-get upgrade -y \
-    && apt-get install -y git zip
-
 # 下载 php-cs-fixer
 RUN curl -L https://cs.symfony.com/download/php-cs-fixer-v2.phar -o php-cs-fixer \
     && chmod a+x php-cs-fixer \
     && mv php-cs-fixer /usr/local/bin/php-cs-fixer
+
+# 安装 Git 和其他依赖
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install -y git zip procps
 
 # 安装 PHP 扩展
 RUN docker-php-ext-install bcmath pdo_mysql \

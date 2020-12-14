@@ -20,6 +20,7 @@ docker-php-ext-install [-jN] [--ini-name file.ini] ext-name [ext-name ...]
 # 额外安装的工具
 * git
 * unzip
+* ps 命令
 * php-cs-fixer
 
 # 安装的 PHP extensions
