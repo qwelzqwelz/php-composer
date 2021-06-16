@@ -5,6 +5,14 @@ WORKDIR /var/www
 # 删除 html 文件夹
 RUN rm -rf /var/www/html
 
+# 安装 node 环境
+RUN apt-get install -y wget \
+    && wget https://nodejs.org/dist/v14.16.0/node-v14.16.0-linux-x64.tar.xz \
+    && tar xvfC node-v14.16.0-linux-x64.tar.xz /var \
+    && rm -f node-v14.16.0-linux-x64.tar.xz \
+    && echo 'export NODE_HOME=/var/node-v14.16.0-linux-x64/bin' >> /root/.bashrc \
+    && echo 'export PATH=$NODE_HOME:$PATH' >> /root/.bashrc
+
 # 安装 composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
