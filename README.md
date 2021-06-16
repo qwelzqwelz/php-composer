@@ -48,9 +48,6 @@ docker-php-ext-install [-jN] [--ini-name file.ini] ext-name [ext-name ...]
 upload_max_filesize = 50M
 post_max_size = 50M
 
-extension=sqlsrv.so
-extension=pdo_sqlsrv.so
-
 memory_limit = -1
 
 [XDebug]
